@@ -1,0 +1,5 @@
+export { default as PenSvg } from './pen'
+export { default as TrashSvg } from './trash'
+export { default as EyeSvg } from './eye'
+export { default as ExitSvg } from './exit'
+export { default as ClipSvg } from './clip'

@@ -49,4 +49,33 @@
             transform: scale(1.05) translateY(-20px);
         }
     }
+
+    .actions {
+        button {
+            height: 30px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #60a5fa;
+            cursor: pointer;
+            border-radius: 999px;
+            transition: all .5s ease-in-out;
+            -moz-transition: all .5s ease-in-out;
+
+            svg {
+                fill: #60a5fa;
+                transition: all .5s ease-in-out;
+                -moz-transition: all .5s ease-in-out;
+            }
+
+            &:hover {
+                border-color: #fb7185;
+
+                svg {
+                    fill: #fb7185;
+                }
+            }
+        }
+    }
 }

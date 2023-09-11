@@ -1,4 +1,5 @@
 import React from 'react'
+import { EyeSvg, PenSvg, TrashSvg } from '../../assets'
 import './style.scss'
 
 const Card = ({ isTransf }) => {
@@ -16,6 +17,18 @@ const Card = ({ isTransf }) => {
                 {
                     //red for out of stock
                 }
+            </div>
+
+            <div className='actions mt-3 flex flex-row items-center gap-1'>
+                <button>
+                    <EyeSvg width={'20px'} height={'18px'} />
+                </button>
+                <button>
+                    <PenSvg width={'18px'} height={'18px'} />
+                </button>
+                <button>
+                    <TrashSvg width={'18px'} height={'18px'} />
+                </button>
             </div>
         </div>
     )

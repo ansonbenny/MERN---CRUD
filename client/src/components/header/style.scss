@@ -1,9 +1,30 @@
 header {
-    @media screen and (max-width:420px) {
+    .mobile {
+        display: none;
+    }
+
+    @media screen and (max-width:550px) {
         flex-direction: column !important;
+        align-items: start !important;
 
         input {
             width: 100% !important;
+        }
+
+        .w-full_moble {
+            width: 100%;
+        }
+
+        .mobile {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            gap: 1rem;
+        }
+
+        .desktop {
+            display: none;
         }
     }
 }

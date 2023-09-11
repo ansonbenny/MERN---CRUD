@@ -42,7 +42,7 @@ const Product = () => {
         <section data-page="product" className='p-3'>
             <Item />
 
-            <div className="mt-10" id='similar'>
+            {/* <div className="mt-10" id='similar'>
                 <h1 className='text-lg text-black capitalize underline'>Similar</h1>
 
                 <Slider {...settings}>
@@ -50,7 +50,7 @@ const Product = () => {
                         return <Card key={key} />
                     })}
                 </Slider>
-            </div>
+            </div> */}
         </section>
     )
 }
