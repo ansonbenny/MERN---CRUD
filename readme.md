@@ -4,7 +4,7 @@ To run this project, you will need to add the following environment variables to
 
 `PORT` = `5000`
 
-`DB_URL`
+`DB_URL` = for mongodb url
 
 `JWT_SECRET`
 
