@@ -8,7 +8,7 @@ To run this project, you will need to add the following environment variables to
 
 `JWT_SECRET`
 
-## Genrate Secret for NodeMailer : https://miracleio.me/snippets/use-gmail-with-nodemailer
+ <b>Genrate Secret for NodeMailer : https://miracleio.me/snippets/use-gmail-with-nodemailer</b>
 
 `MAIL_EMAIL`
 
