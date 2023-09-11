@@ -1,32 +1,48 @@
 import React from 'react'
 import { EyeSvg, PenSvg, TrashSvg } from '../../assets'
+import { useNavigate } from 'react-router-dom'
 import './style.scss'
 
-const Card = ({ isTransf }) => {
-    return (
-        <div className={`card cursor-pointer	 border border-grey rounded-md p-3 ${isTransf ? 'transform_y' : ''}`}>
-            <img id='front' className='rounded-md' src='https://downloadfree3d.com/wp-content/uploads/2017/10/3D-Car-Sample.jpg' />
+const Card = ({ isTransf, data, onTrash }) => {
+    const navigate = useNavigate();
 
-            <img id='back' className='rounded-md' src='https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80' />
+    return (
+        <div onClick={(e) => {
+            if (!e?.target?.classList?.contains("prevent")) {
+                navigate(`/p/${data?._id}`)
+            }
+        }} className={`card cursor-pointer	 border border-grey rounded-md p-3 ${isTransf ? 'transform_y' : ''}`}>
+            <img id='front' className='rounded-md' src={`/${data?.thumbnail?.path}`} />
+
+            <img id='back' className='rounded-md'
+                src={`/${data?.files?.length >= 1 ? data?.files?.[0]?.path : data?.thumbnail?.path}`} />
 
             <div className='mt-4'>
-                <h5 className='text-black font-bold text-base'>₹ 200000</h5>
-                <p className='text-black text-sm'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                <h5 className='text-black font-bold text-base'>₹{data?.price}</h5>
+                <p className='text-black text-sm'>{data?.name}</p>
 
-                <h6 className='mt-2 text-xs font-bold text-green'>IN STOCK</h6>
-                {
-                    //red for out of stock
-                }
+                <h6 className={`mt-2 text-xs font-bold ${data?.available == "in_stock" ? "text-green" : "text-red"}`}>
+                    {
+                        data?.available == "in_stock" ?
+                            "Available" : "Not Available"
+                    }
+                </h6>
             </div>
 
             <div className='actions mt-3 flex flex-row items-center gap-1'>
-                <button>
+                <button onClick={() => {
+                    navigate(`/p/${data?._id}`)
+                }}>
                     <EyeSvg width={'20px'} height={'18px'} />
                 </button>
-                <button>
+                <button className='prevent' onClick={() => {
+                    navigate(`/edit/${data?._id}`)
+                }}>
                     <PenSvg width={'18px'} height={'18px'} />
                 </button>
-                <button>
+                <button onClick={() => {
+                    onTrash(data?._id)
+                }} className='prevent'>
                     <TrashSvg width={'18px'} height={'18px'} />
                 </button>
             </div>

@@ -10,7 +10,8 @@ export default {
       blue: "#60a5fa",
       white: "#fff",
       green: "#4ade80",
-      red: "#fb7185"
+      red: "#fb7185",
+      none: "transparent"
     }
   },
   plugins: [],

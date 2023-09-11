@@ -1,56 +1,50 @@
-import React, { useEffect } from 'react'
-import { Card, Item } from '../components'
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useEffect, useState } from 'react'
+import { Item } from '../components'
+import { useNavigate, useOutletContext, useParams } from 'react-router-dom';
+import { axios } from '../lib';
 
 const Product = () => {
+    const { user, location } = useOutletContext()
+
+    const { id } = useParams()
+
+    const navigate = useNavigate()
+
+    const [state, setState] = useState({})
+
     useEffect(() => {
         document.title = "Kale - Product"
-    }, [])
 
-    var settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        arrows: false,
-        centerPadding: '10px',
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
+        const abortControll = new AbortController()
+
+        if (user && id) {
+            (async () => {
+                try {
+                    let res = await axios.get(`/vehicle/get_vehicle/${id}`, {
+                        signal: abortControll?.signal
+                    })
+
+                    if (res?.['data']?.data) {
+                        setState(res?.['data']?.data)
+                    }
+                } catch (err) {
+                    if (err?.code !== "ERR_CANCELED") {
+                        alert(err?.response?.data?.message)
+
+                        navigate('/')
+                    }
                 }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                }
-            }
-        ]
-    };
+            })();
+        }
+
+        return () => {
+            abortControll.abort()
+        }
+    }, [user, location])
+
     return (
         <section data-page="product" className='p-3'>
-            <Item />
-
-            {/* <div className="mt-10" id='similar'>
-                <h1 className='text-lg text-black capitalize underline'>Similar</h1>
-
-                <Slider {...settings}>
-                    {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((obj, key) => {
-                        return <Card key={key} />
-                    })}
-                </Slider>
-            </div> */}
+            <Item data={state} />
         </section>
     )
 }

@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Error = () => {
+    useEffect(()=>{
+        document.title = "Kale - 404";
+    },[])
     return (
         <section data-page="error"
             style={{ height: "100vh" }}

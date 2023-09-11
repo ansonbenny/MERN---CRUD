@@ -1,16 +1,12 @@
 import React, { Fragment } from 'react'
 
-const Input = ({ type, placeHolder, name, className, isRequire, onInputHandle, notLab }) => {
+const Input = ({ isRequire, ...others }) => {
     return (
         <Fragment>
-            <label>{placeHolder}</label>
+            <label>{others?.placeholder}</label>
             <input
-                className={className}
-                type={type ? type : 'text'}
-                name={name}
-                placeholder={placeHolder}
+                {...others}
                 required={isRequire}
-                onInput={onInputHandle}
             />
         </Fragment>
     )
