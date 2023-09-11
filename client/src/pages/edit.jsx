@@ -29,7 +29,9 @@ const reducer = (state, { type, data, isEdit }) => {
         case "primary":
             //if edit add old one to removed
 
-            data.files[0].url = URL.createObjectURL(data?.files?.[0])
+            if (data?.files?.[0]) {
+                data.files[0].url = URL.createObjectURL(data?.files?.[0])
+            }
 
             var delete_files;
 
@@ -365,7 +367,7 @@ const Edit = ({ isAdd }) => {
                         <input
                             type="file"
                             name='primary'
-                            onInput={onInputHandle}
+                            onChange={onInputHandle}
                             accept='image/*' required={isAdd} />
 
                         <ClipSvg />
@@ -399,7 +401,7 @@ const Edit = ({ isAdd }) => {
                             type="file"
                             accept='image/*'
                             name='secondary'
-                            onInput={onInputHandle}
+                            onChange={onInputHandle}
                             multiple
                         />
 

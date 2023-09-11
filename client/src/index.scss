@@ -17,6 +17,11 @@ input::-webkit-inner-spin-button {
   display: none;
 }
 
+input[type=file],
+input[type=file]::-webkit-file-upload-button {
+  cursor: pointer;
+}
+
 svg {
   pointer-events: none;
 }
