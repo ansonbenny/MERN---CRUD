@@ -1,0 +1,52 @@
+@keyframes thumbnail {
+    from {
+        opacity: .1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.card {
+    background: #fff;
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+
+    img {
+        width: 100%;
+        object-position: center;
+        object-fit: cover;
+        height: 10rem;
+    }
+
+    #back {
+        display: none;
+        opacity: .1;
+        animation: thumbnail .5s ease-in-out both;
+    }
+
+    p {
+        word-wrap: break-word;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    &:hover {
+        #front {
+            display: none;
+        }
+
+        #back {
+            display: block;
+            animation: thumbnail 2s ease-in-out both;
+        }
+
+        &:is(.transform_y) {
+            transform: scale(1.05) translateY(-20px);
+        }
+    }
+}

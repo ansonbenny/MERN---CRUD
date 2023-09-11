@@ -1,0 +1,39 @@
+.product_item {
+    .slick-dots {
+        .slick-active button::before {
+            color: #fb7185 !important;
+        }
+    }
+
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 2rem;
+
+    @media screen and (min-width:800px) {
+        display: block;
+        width: 100%;
+        clear: both;
+
+        &::before,
+        &::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .left {
+            width: 45%;
+            float: left;
+            position: sticky;
+            top: 90px;
+            height: 100%;
+        }
+
+        .right {
+            width: 53%;
+            display: inline-block;
+            vertical-align: top;
+            float: right;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+header {
+    @media screen and (max-width:420px) {
+        flex-direction: column !important;
+
+        input {
+            width: 100% !important;
+        }
+    }
+}

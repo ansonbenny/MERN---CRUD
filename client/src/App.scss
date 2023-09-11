@@ -1,0 +1,28 @@
+section[data-page="home"] {
+    .items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+        gap: 1.4rem;
+
+    }
+
+    .actions {
+        select {
+            margin-left: auto;
+            outline: none;
+            background: transparent;
+        }
+    }
+}
+
+section[data-page="product"] #similar {
+    .slick-slide {
+       // margin: 0 1rem !important;
+       padding: .5rem;
+    }
+
+    /* the parent */
+    .slick-list {
+        margin: 0 -.5rem !important;
+    }
+}
