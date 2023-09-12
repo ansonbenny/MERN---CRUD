@@ -99,7 +99,11 @@ const Home = () => {
   return (
     <section data-page="home" className='p-3'>
       <div className="actions flex">
-        <h1 className='text-lg text-black capitalize'>Recent</h1>
+        <h1 className='text-lg text-black capitalize'>
+          {state?.sort == 'recent' && "Recent"}
+          {state?.sort == 'low' && "Low to High"}
+          {state?.sort == 'high' && "Hight to Low"}
+        </h1>
 
         <select onChange={(e) => {
           setState((state) => ({
