@@ -4,6 +4,7 @@ import user from "../helper/user.js";
 import vehicle from "../helper/vehicle.js";
 import multer from "../multer/index.js";
 import files from "../helper/files.js";
+import vahicles from '../samples/vahicles.json' assert {type: "json"}
 
 const router = Router();
 
@@ -39,7 +40,10 @@ const CheckLogged = (req, res, next) => {
 
 router.get('/get_manufacture', CheckLogged, async (req, res) => {
     try {
-        let data = await vehicle.get_manufacture()
+        // if data in db
+        //let data = await vehicle.get_manufacture()
+
+        let data = vahicles.slice(0, 30)
 
         res.status(200).json({
             status: 200,
@@ -56,7 +60,12 @@ router.get('/get_manufacture', CheckLogged, async (req, res) => {
 
 router.get('/get_models', CheckLogged, async (req, res) => {
     try {
-        let data = await vehicle.get_models(req?.query?.manufacture)
+        // if data in db
+        //let data = await vehicle.get_models(req?.query?.manufacture)
+
+        let data = vahicles.filter((obj) => {
+            return req?.query?.manufacture?.toLowerCase?.() == obj?.make?.toLowerCase?.()
+        })
 
         res.status(200).json({
             status: 200,

@@ -174,7 +174,7 @@ export default {
                 }, {
                     $skip: parseInt(offset)
                 }, {
-                    $limit: 2
+                    $limit: 15
                 }, {
                     $group: {
                         _id: 1,
