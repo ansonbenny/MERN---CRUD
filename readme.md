@@ -20,43 +20,9 @@ Clone the project
   git clone https://github.com/ansonbenny/MERN-DOCKER
 ```
 
-##To Start BackEnd
-
-Go to the server directory
-
-```bash
-  cd MERN-DOCKER/server
-```
-
-Install dependencies
-
-```bash
-  npm install
-```
-
 Start
 
 ```bash
-  npm start
-```
-
-##To Start FrontEnd
-
-Go to the client directory
-
-```bash
-  cd MERN-DOCKER/client
-```
-
-Install dependencies
-
-```bash
-  npm install
-```
-
-Start
-
-```bash
-  npm run dev
+  docker compose up
 ```
 
