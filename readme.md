@@ -17,7 +17,7 @@ To run this project, you will need to add the following environment variables to
 Clone the project
 
 ```bash
-  git clone git@github.com:ansonbenny/MERN-DOCKER.git
+  git clone [https://github.com/ansonbenny/MERN-DOCKER](https://github.com/ansonbenny/MERN-DOCKER)
 ```
 
 ##To Start BackEnd
