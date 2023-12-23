@@ -4,8 +4,6 @@ To run this project, you will need to add the following environment variables to
 
 `PORT` = `5000`
 
-`DB_URL` = for mongodb url
-
 `JWT_SECRET`
 
  <b>Generate Secret for NodeMailer : https://miracleio.me/snippets/use-gmail-with-nodemailer</b>
@@ -19,7 +17,7 @@ To run this project, you will need to add the following environment variables to
 Clone the project
 
 ```bash
-  git clone git@github.com:ansonbenny/Techfriar.git
+  git clone git@github.com:ansonbenny/MERN-DOCKER.git
 ```
 
 ##To Start BackEnd
@@ -27,7 +25,7 @@ Clone the project
 Go to the server directory
 
 ```bash
-  cd Techfriar/server
+  cd MERN-DOCKER/server
 ```
 
 Install dependencies
@@ -47,7 +45,7 @@ Start
 Go to the client directory
 
 ```bash
-  cd Techfriar/client
+  cd MERN-DOCKER/client
 ```
 
 Install dependencies

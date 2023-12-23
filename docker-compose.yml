@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - 5173:5173
+    networks:
+      - MERN
+      
+  server:
+    build: ./server
+    ports:
+      - 5000:5000
+    environment:
+      DB_URL: mongodb://db
+    networks:
+      - MERN
+  db:
+    image: mongo:7.0.5-rc0-jammy
+    ports:
+      - 27017:27017
+    volumes:
+      - MERN_DOCKER:/data/db
+    networks:
+      - MERN
+
+volumes:
+  MERN_DOCKER:
+networks:
+  MERN:
+    driver: bridge

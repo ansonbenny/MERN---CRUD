@@ -27,9 +27,9 @@ app.use('/api/user', User)
 app.use('/api/vehicle', Vehicle)
 
 // for render react static files
-app.get("/*", (req, res) => {
+/* app.get("/*", (req, res) => {
     res.sendFile(path.join(path.resolve(`${path.dirname("")}/dist/index.html`)));
-});
+}); */
 
 app.listen(port, () => {
     connectDB((done, err) => {
